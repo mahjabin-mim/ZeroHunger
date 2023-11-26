@@ -1,0 +1,28 @@
+﻿@model ZeroHunger.Models.DTO.AddRequestDto
+
+<div class="container mt-5">
+    <h2>Add Request Form</h2>
+    <form asp-action="AddRequest" method="post">
+        <div class="form-group">
+            <label asp-for="foodType" class="control-label"></label>
+            <input asp-for="foodType" class="form-control" />
+            <span asp-validation-for="foodType" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="quantity" class="control-label"></label>
+            <input asp-for="quantity" class="form-control" />
+            <span asp-validation-for="quantity" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="reqPosted" class="control-label"></label>
+            <input asp-for="reqPosted" class="form-control" type="date"/>
+            <span asp-validation-for="reqPosted" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="maxPreservationTime" class="control-label"></label>
+            <input asp-for="maxPreservationTime" class="form-control" />
+            <span asp-validation-for="maxPreservationTime" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Post</button>
+    </form>
+</div>

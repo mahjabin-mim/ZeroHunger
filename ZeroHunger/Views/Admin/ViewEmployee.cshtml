@@ -1,0 +1,48 @@
+﻿@model List<ZeroHunger.Models.Employee>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="float-left">All Employee</h2>
+        @if (Model != null)
+        {
+            <table class="table mt-3">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Joinning Date</th>
+                        <th>Completed Request</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var request in Model)
+                    {
+                        <tr>
+                            <td>@request.empUserName</td>
+                            <td>@request.empName</td>
+                            <td>@request.email</td>
+                            <td>@request.empPhone</td>
+                            <td>@request.empAddress</td>
+                            <td>@request.joinningDate</td>
+                            <td>@request.completedReq</td>
+                            @*<form method="post" asp-action="RemoveEmployee">
+                            <td>
+                                <input type="hidden" name="empUserName" value="@request.empUserName" />
+                                <button type="submit" class="btn btn-success">Remove</button>
+                            </td>
+                            </form>*@
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>No data available</p>
+        }
+    </div>
+</div>
+</div>

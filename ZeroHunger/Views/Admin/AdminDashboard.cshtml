@@ -1,0 +1,70 @@
+﻿@model ZeroHunger.Models.ViewDashboardModel
+
+<h2>Admin Dashboard</h2>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <a class="btn btn-primary w-100" asp-action="ApproveApplicants">Applicants</a>
+        </div>
+        <div class="col-md-4 mb-3">
+            <a class="btn btn-success w-100" asp-action="ViewEmployee">Employee</a>
+        </div>
+        <div class="col-md-4">
+            <a class="btn btn-danger w-100" asp-action="Index" asp-controller="LandingPage">Logout</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="float-left">Requests</h2>
+            @if (Model != null)
+            {
+                <table class="table mt-3">
+                    <thead>
+                        <tr>
+                            <th>Request ID</th>
+                            <th>Food Type</th>
+                            <th>Quantity</th>
+                            <th>Request Posted</th>
+                            <th>Max Preservation Time</th>
+                            <th>Employee</th>
+                            <th>Restaurant</th>
+                            <th>Request Status</th>
+                            <th>Assign Employee</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var request in Model.CollectRequest)
+                        {
+                            <tr>
+                                <td>@request.reqId</td>
+                                <td>@request.foodType</td>
+                                <td>@request.quantity</td>
+                                <td>@request.reqPosted</td>
+                                <td>@request.maxPreservationTime</td>
+                                <td>
+                                    <div class="form-group">
+                                        <select class="form-control">
+                                            <option value="">-- Select Employee --</option>
+                                            @foreach (var employee in Model.Employee)
+                                            {
+                                                <option name="empUserName" value="@employee.empUserName">@employee.empUserName</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </td>
+                                <td>@request.restUserName</td>
+                                <td>@request.reqStarus</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>No post available</p>
+            }
+        </div>
+    </div>
+</div>

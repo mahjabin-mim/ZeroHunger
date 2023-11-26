@@ -1,0 +1,56 @@
+﻿@model List<ZeroHunger.Models.CollectRequest>
+
+<h2> @ViewBag.name</h2>
+
+<div class="container mt-5">
+    <div class="row justify-content-between">
+        <div class="col-md-4">
+            <a class="btn btn-primary w-100" asp-action="AddRequest">Add Request</a>
+        </div>
+        <div class="col-md-4">
+            <a class="btn btn-danger w-100" asp-action="Index" asp-controller="LandingPage">Logout</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="float-left">Requests posted</h2>
+            @if (Model != null)
+            {
+                <table class="table mt-3">
+                    <thead>
+                        <tr>
+                            <th>Request ID</th>
+                            <th>Food Type</th>
+                            <th>Quantity</th>
+                            <th>Request Posted</th>
+                            <th>Max Preservation Time</th>
+                            <th>Employee</th>
+                            <th>Restaurant</th>
+                            <th>Request Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var request in Model)
+                        {
+                            <tr>
+                                <td>@request.reqId</td>
+                                <td>@request.foodType</td>
+                                <td>@request.quantity</td>
+                                <td>@request.reqPosted</td>
+                                <td>@request.maxPreservationTime</td>
+                                <td>@request.empUsername</td>
+                                <td>@request.restUserName</td>
+                                <td>@request.reqStarus</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>No post available</p>
+            }
+        </div>
+    </div>
+</div>

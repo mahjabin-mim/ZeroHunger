@@ -1,0 +1,38 @@
+﻿@model ZeroHunger.Models.DTO.ApplicantsDto
+
+<div class="container mt-5">
+    <h2>Applicants Form</h2>
+    <form asp-action="Applicants" method="post">
+        <div class="form-group">
+            <label asp-for="email" class="control-label"></label>
+            <input asp-for="email" class="form-control" />
+            <span asp-validation-for="email" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="appName" class="control-label"></label>
+            <input asp-for="appName" class="form-control" />
+            <span asp-validation-for="appName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="appPhone" class="control-label"></label>
+            <input asp-for="appPhone" class="form-control" />
+            <span asp-validation-for="appPhone" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="appAddress" class="control-label"></label>
+            <input asp-for="appAddress" class="form-control" />
+            <span asp-validation-for="appAddress" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="applyDate" class="control-label"></label>
+            <input asp-for="applyDate" class="form-control" type="date" asp-format="{0:yyyy-MM-dd}" />
+            <span asp-validation-for="applyDate" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

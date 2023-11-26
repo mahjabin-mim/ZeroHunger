@@ -1,0 +1,85 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/mahjabinmim/Projects/ZeroHunger/ZeroHunger/ZeroHunger.csproj": {}
+  },
+  "projects": {
+    "/Users/mahjabinmim/Projects/ZeroHunger/ZeroHunger/ZeroHunger.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/mahjabinmim/Projects/ZeroHunger/ZeroHunger/ZeroHunger.csproj",
+        "projectName": "ZeroHunger",
+        "projectPath": "/Users/mahjabinmim/Projects/ZeroHunger/ZeroHunger/ZeroHunger.csproj",
+        "packagesPath": "/Users/mahjabinmim/.nuget/packages/",
+        "outputPath": "/Users/mahjabinmim/Projects/ZeroHunger/ZeroHunger/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/mahjabinmim/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "/usr/local/share/dotnet/sdk/7.0.311/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "BCrypt.Net": {
+              "target": "Package",
+              "version": "[0.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.311/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

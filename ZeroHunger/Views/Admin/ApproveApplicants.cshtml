@@ -1,0 +1,45 @@
+﻿@model List<ZeroHunger.Models.Applicants>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="float-left">All Applicants</h2>
+        @if (Model != null)
+        {
+            <table class="table mt-3">
+                <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var request in Model)
+                    {
+                        <tr>
+                            <td>@request.email</td>
+                            <td>@request.appName</td>
+                            <td>@request.appPhone</td>
+                            <td>@request.appAddress</td>
+                            <td>@request.applyDate</td>                                                          
+                                <form method="post" asp-action="ApproveApplicants">
+                            <td>
+                                <input type="hidden" name="email" value="@request.email" />
+                                <button type="submit" class="btn btn-success">Approve</button>
+                            </td>
+                            </form>                       
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>No data available</p>
+        }
+    </div>
+</div>
+</div>
