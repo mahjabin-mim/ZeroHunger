@@ -28,10 +28,10 @@
                             <th>Quantity</th>
                             <th>Request Posted</th>
                             <th>Max Preservation Time</th>
-                            <th>Employee</th>
                             <th>Restaurant</th>
                             <th>Request Status</th>
-                            <th>Assign Employee</th>
+                            <th>Employee</th>
+                            <th>Assign</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -43,19 +43,33 @@
                                 <td>@request.quantity</td>
                                 <td>@request.reqPosted</td>
                                 <td>@request.maxPreservationTime</td>
-                                <td>
-                                    <div class="form-group">
-                                        <select class="form-control">
-                                            <option value="">-- Select Employee --</option>
+                                <td>@request.restUserName</td>
+                                <td>@request.reqStarus</td>
+                                @if (request.empUsername == "N/A")
+                                {
+                                    <form method="post" asp-action="Assign">
+                                    <td>
+                                        <select class="form-select" name="empUserName">
+                                            <option value="" disabled selected hidden>---</option>
                                             @foreach (var employee in Model.Employee)
                                             {
                                                 <option name="empUserName" value="@employee.empUserName">@employee.empUserName</option>
                                             }
                                         </select>
-                                    </div>
-                                </td>
-                                <td>@request.restUserName</td>
-                                <td>@request.reqStarus</td>
+                                    </td>
+                                    <td>
+                                        <input type="hidden" name="reqId" value="@request.reqId" />
+                                        <button type="submit" class="btn btn-success">Assign</button>
+                                    </td>
+                                    </form>
+                                    }
+                                    else
+                                    {
+                                        <td>@request.empUsername</td>
+                                        <td>
+                                            <button type="submit" class="btn btn-secondary" disabled>Assign</button>
+                                        </td>
+                                    }
                             </tr>
                         }
                     </tbody>

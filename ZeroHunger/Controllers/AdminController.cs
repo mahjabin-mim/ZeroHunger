@@ -98,15 +98,20 @@ namespace ZeroHunger.Controllers
             return View(allEmployee);
         }
 
-        //[HttpGet]
-        //public IActionResult ViewEmployee(string empUserName)
-        //{
-        //    var employee = _dbContext.Employee.SingleOrDefault(a => a.empUserName == empUserName);
-        //    _dbContext.Employee.Remove(employee);
-        //    _dbContext.SaveChanges();
-        //    List<Employee> allEmployee = _dbContext.Employee.ToList();
-        //    return View(allEmployee);
-        //}
+        [HttpPost]
+        public IActionResult Assign(int reqId, string empUserName)
+        {
+            var assignUpdate = _dbContext.CollectRequest.SingleOrDefault(a => a.reqId == reqId);
+            if (assignUpdate != null)
+            {
+                assignUpdate.empUsername = empUserName;
+                assignUpdate.reqStarus = "Assigned";
+
+                _dbContext.CollectRequest.Update(assignUpdate);
+                _dbContext.SaveChanges();
+            }
+            return RedirectToAction("AdminDashboard");
+        }
     }
 }
 
