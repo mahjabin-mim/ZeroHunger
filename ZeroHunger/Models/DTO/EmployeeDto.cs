@@ -26,11 +26,11 @@ namespace ZeroHunger.Models.DTO
         //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         //[DataType(DataType.Date)]
         //public string applyDate { get; set; } = DateTime.Now;
-        [Required(ErrorMessage = "Date is required")]
-        public string joinningDate { get; set; }
+        //[Required(ErrorMessage = "Date is required")]
+        //public string joinningDate { get; set; }
 
-        [Required(ErrorMessage = "Date is required")]
-        public string completedReq { get; set; }
+        //[Required(ErrorMessage = "Date is required")]
+        //public string completedReq { get; set; }
     }
 }
 

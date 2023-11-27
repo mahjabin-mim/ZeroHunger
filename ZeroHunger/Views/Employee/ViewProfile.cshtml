@@ -1,0 +1,45 @@
+﻿@model List<ZeroHunger.Models.Employee>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Employee Profile</h2>
+                    <form asp-action="EditProfile" method="post">
+                        <button type="submit" class="btn btn-primary float-right">Edit</button>
+                    </form>                      
+                </div>
+                <div class="card-body">
+                    @foreach (var request in Model)
+                    {
+                        <div>
+                            <span class="font-weight-bold text-secondary">Username:</span>
+                            <h6 class="font-weight-bold text-dark">@request.empUserName</h6>
+                        </div>
+                        <div>
+                            <span class="font-weight-bold text-secondary">Name:</span>
+                            <h6 class="font-weight-bold text-dark">@request.empName</h6>
+                        </div>
+                        <div>
+                            <span class="font-weight-bold text-secondary">Email:</span>
+                            <h6 class="font-weight-bold text-dark">@request.email</h6>
+                        </div>
+                        <div>
+                            <span class="font-weight-bold text-secondary">Phone:</span>
+                            <h6 class="font-weight-bold text-dark">@request.empPhone</h6>
+                        </div>
+                        <div>
+                            <span class="font-weight-bold text-secondary">Address:</span>
+                            <h6 class="font-weight-bold text-dark">@request.empAddress</h6>
+                        </div>
+                        <div>
+                            <span class="font-weight-bold text-secondary">Completed Requests:</span>
+                            <h6 class="font-weight-bold text-dark">@request.completedReq</h6>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

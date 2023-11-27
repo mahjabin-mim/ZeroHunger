@@ -21,7 +21,13 @@ namespace ZeroHunger.Controllers
         [HttpGet]
         private List<CollectRequest> GetCollectRequest()
         {
-            return _dbContext.CollectRequest.ToList();
+            var filteredRequests = _dbContext.CollectRequest
+                   .Where(request => request.reqStarus == "Pending" ||
+                                request.reqStarus == "Assigned" ||
+                                request.reqStarus == "Collected")
+                    .ToList();
+
+            return filteredRequests;
         }
 
         [HttpGet]

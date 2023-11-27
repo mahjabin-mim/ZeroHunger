@@ -19,10 +19,11 @@ namespace ZeroHunger.Controllers
             _configuration = configuration;
         }
 
-        private List<CollectRequest> GetFoodRequestsByRestUsername(string restUserName)
+        private List<CollectRequest> GetCollectRequestsByRestUsername(string restUserName)
         {
             return _dbContext.CollectRequest
-                .Where(request => request.restUserName == restUserName)
+                .Where(request => request.restUserName == restUserName &&
+                             request.reqStarus == "Pending" || request.reqStarus == "Assigned")
                 .ToList();
         }
 
@@ -30,7 +31,7 @@ namespace ZeroHunger.Controllers
         public IActionResult RestDashboard()
         {
             string restaurant = HttpContext.Request.Cookies["restUserName"];
-            List<CollectRequest> collectRequest = GetFoodRequestsByRestUsername(restaurant);
+            List<CollectRequest> collectRequest = GetCollectRequestsByRestUsername(restaurant);
             ViewBag.name = restaurant;
             return View(collectRequest);           
         }

@@ -71,13 +71,19 @@ namespace ZeroHunger.Controllers
                 // Retrieve the user from the database based on the provided email
                 //single/default returns a single, specific element
                 var restaurant = _dbContext.Restaurant.SingleOrDefault(u => u.restUserName == loginDto.username);
-                
-                if(restaurant != null && BCrypt.Net.BCrypt.Verify(loginDto.password, restaurant.restPassword))
+                var employee = _dbContext.Employee.SingleOrDefault(u => u.empUserName == loginDto.username);
+
+                if (restaurant != null && BCrypt.Net.BCrypt.Verify(loginDto.password, restaurant.restPassword))
                 {
                     Response.Cookies.Append("restUserName", restaurant.restUserName);
                     return RedirectToAction("RestDashboard","Restaurant");
                 }
-                else if(loginDto.username == "admin" && loginDto.password == "admin")
+                else if (employee != null && BCrypt.Net.BCrypt.Verify(loginDto.password, employee.empPassword))
+                {
+                    Response.Cookies.Append("empUserName", employee.empUserName);
+                    return RedirectToAction("EmpDashboard", "Employee");
+                }
+                else if(loginDto.username == "admin" && loginDto.password == "12345")
                 {
                     return RedirectToAction("AdminDashboard", "Admin");
                 }
